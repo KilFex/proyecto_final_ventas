@@ -4,11 +4,13 @@ public class Cliente {
 	
 	//Atributos
 	private String nombres, apellidos, direccion, telefono, dni;
-	private static  int codigoCliente = 1000;
+	private static  int codigoCliente = 1001;
+	private String codigo;
 	
 	//Constructor
 	public Cliente(String nombres, String apellidos, String direccion, String telefono, String dni) {
 		
+		this.codigo = clienteCodigo();
 		this.nombres = nombres;
 		this.apellidos = apellidos;
 		this.direccion = direccion;
@@ -18,6 +20,12 @@ public class Cliente {
 	public Cliente() {
 	}
 
+	public String getCodigo() {
+		return codigo;
+	}
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
 	//Metodos
 	public String getNombres() {
 		return nombres;
@@ -61,6 +69,9 @@ public class Cliente {
 
 	public static int getCodigocliente() {
 		return codigoCliente;
+	}
+	private String clienteCodigo() {
+		return String.valueOf(codigoCliente++);
 	}
 	
 	

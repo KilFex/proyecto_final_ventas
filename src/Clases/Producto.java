@@ -7,15 +7,23 @@ public class Producto {
 	private String nombre;
 	private double precio;
 	private static int codigoProducto = 2000;
+	private String productoCodigo;
 	
 	//Constructor
 	public Producto(int stockActual, int stockMinimo, int stockMaximo, String nombre, double precio) {
 		
+		this.productoCodigo = codigoAutogenerado();
 		this.stockActual = stockActual;
 		this.stockMinimo = stockMinimo;
 		this.stockMaximo = stockMaximo;
 		this.nombre = nombre;
 		this.precio = precio;
+	}
+	public String getProductoCodigo() {
+		return productoCodigo;
+	}
+	public void setProductoCodigo(String productoCodigo) {
+		this.productoCodigo = productoCodigo;
 	}
 	public Producto() {	
 	}
@@ -56,6 +64,9 @@ public class Producto {
 	}
 	public static void setCodigoProducto(int codigoProducto) {
 		Producto.codigoProducto = codigoProducto;
+	}
+	private String codigoAutogenerado() {
+		return String.valueOf(codigoProducto++);
 	}
 	
 	
