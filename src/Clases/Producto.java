@@ -6,7 +6,7 @@ public class Producto {
 	private int stockActual, stockMinimo, stockMaximo;
 	private String nombre;
 	private double precio;
-	private static int codigoProducto = 2000;
+	private static int codigoProducto = 2001;
 	private String productoCodigo;
 	
 	//Constructor
