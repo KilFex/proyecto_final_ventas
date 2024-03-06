@@ -71,7 +71,7 @@ public class frmMant_Clientes extends JFrame implements ActionListener {
 		arregloClientes = new ArregloClientes();
 		arregloClientes.crearArrayListCliente();
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 1003, 672);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -142,6 +142,7 @@ public class frmMant_Clientes extends JFrame implements ActionListener {
 		contentPane.add(btnEliminar);
 		
 		btnModificar = new JButton("Modificar");
+		btnModificar.addActionListener(this);
 		btnModificar.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnModificar.setBounds(381, 114, 113, 30);
 		contentPane.add(btnModificar);
@@ -190,6 +191,9 @@ public class frmMant_Clientes extends JFrame implements ActionListener {
 	    tabla.setModel(model); // Establece el modelo en la tabla
 	}
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnModificar) {
+			actionPerformedBtnModificar(e);
+		}
 		if (e.getSource() == btnEliminar) {
 			actionPerformedBtnEliminar(e);
 		}
@@ -235,5 +239,9 @@ public class frmMant_Clientes extends JFrame implements ActionListener {
 		txtNombres.setText("");
 		txtDireccion.setText("");
 		txtTelefono.setText("");
+	}
+	protected void actionPerformedBtnModificar(ActionEvent e) {
+		frmModificar_Cliente modificarCliente = new frmModificar_Cliente();
+		modificarCliente.setVisible(true);
 	}
 }
